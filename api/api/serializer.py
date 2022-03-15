@@ -8,7 +8,7 @@ from rest_framework.validators import UniqueValidator
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
-    @staticmethod
+    @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
         token['username'] = user.username
@@ -26,6 +26,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ("username", "password", "password2")
 
     def validate(self, attrs):
+        dir(attrs)
         if attrs['password'] != attrs['password2']:
             raise serializers.ValidationError(
                 {"password": "Password fields didn`t match."}
@@ -33,9 +34,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        user = User.objects.create(
-            username=validated_data['username']
-        )
+        user = User.objects.create(username=validated_data['username'])
         user.set_password(validated_data['password'])
         user.save()
 

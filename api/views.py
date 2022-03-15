@@ -21,7 +21,7 @@ class RegisterView(generics.CreateAPIView):
 @api_view(['GET'])
 def get_routes(request):
     routes = [
-        '/api/tokens/',
+        '/api/token/',
         '/api/register/',
         '/api/token/refresh/'
     ]
