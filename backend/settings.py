@@ -6,7 +6,7 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'django-insecure-3%o%$p-5&6snpqe0x=w8vkua*f4c)qvrt3eh2i3u-#0)u)3&o&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
